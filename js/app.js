@@ -3,7 +3,7 @@
 
 // we can't directly use 'fetch' because it does not offer
 // the responseXML property
-const makeXMLRequest = function (url) {
+const makeXMLRequest = async function (url) {
     return new Promise(function (resolve, reject) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url);
