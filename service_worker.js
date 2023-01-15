@@ -3,6 +3,7 @@ var APP_PREFIX = 'chinese_dict_pwa';
 var VERSION = 'version_001';
 var URLS = [    
   `${GITHUB_PATH}/`,
+  `${GITHUB_PATH}/data/cfdict.xml`,
   `${GITHUB_PATH}/index.html`,
   `${GITHUB_PATH}/css/styles.css`,
   `${GITHUB_PATH}/img/icon.png`,
