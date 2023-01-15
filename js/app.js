@@ -4,10 +4,11 @@
 const results = document.querySelector('[data-js-results]');
 const searchForm = document.querySelector('[data-js-search]');
 searchForm.onsubmit = function() {
-    if (this.search.value === '') {
+    var searchValue = this.search.value;
+    if (searchValue === '') {
         return false;
     }
-    const xpath = "//word[simp[contains(., '" + this.search.value + "')]]";
+    const xpath = "//word[simp[contains(., '" + searchValue + "')]]";
     var allResults = xml.evaluate(xpath, xml, null, XPathResult.ANY_TYPE, null );
 
     var oneResult = null;
@@ -20,13 +21,23 @@ searchForm.onsubmit = function() {
 
         var dt = document.createElement('dt');
         dt.textContent = simp.textContent + ' ' + py.textContent ;
-        dl.appendChild(dt);
-
-        for (var i = 0; i < trans.children.length; i++) {
-            var dd = document.createElement('dd');
-            dd.textContent = trans.children[i].textContent ;
-            dl.appendChild(dd);
+        // put first string that begin with this search
+        if (simp.textContent.startsWith(searchValue)) {;
+            for (var i = 0; i < trans.children.length; i++) {
+                var dd = document.createElement('dd');
+                dd.textContent = trans.children[i].textContent ;
+                dl.prepend(dd);
+            }
+            dl.prepend(dt);
+        } else {
+            dl.append(dt);
+            for (var i = 0; i < trans.children.length; i++) {
+                var dd = document.createElement('dd');
+                dd.textContent = trans.children[i].textContent ;
+                dl.appendChild(dd);
+            }
         }
+
     }
     results.replaceChildren(dl);
 
