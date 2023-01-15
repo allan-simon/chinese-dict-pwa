@@ -1,0 +1,16 @@
+{
+  "name": "Chinese Dict PWA ",
+  "short_name": "ChinDict",
+  "description": "Chinese dictionnary as a PWA",
+  "scope": "/chinese-dict-pwa/",
+  "start_url": "/chinese-dict-pwa/",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "standalone", 
+  "icons": [
+      {
+        "src": "/chinese-dict-pwa/img/icon.png",
+        "type": "image/png",
+        "sizes": "700x700"
+      }
+  ]
