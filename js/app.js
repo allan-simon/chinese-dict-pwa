@@ -1,4 +1,4 @@
-(function() {
+(async function() {
 "use strict";
 
 // we can't directly use 'fetch' because it does not offer
